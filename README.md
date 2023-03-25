@@ -32,6 +32,9 @@ The useReducer hook requires three Argument and one optional parameter viz:
 2. Initial state
 3. init function (optional)
 
+
+
+
 1. The reducer function: 
 
 As your application deals with an increasing number of events, it becomes increasingly challenging to quickly grasp all that is happening, which can be quite exasperating. Reducers enable you to gather all your state modification logic in a single location and return a single value. This implies that, for instance, when working on a to-do application, you do not have to generate separate functions for adding and deleting items, it can all be done in a single function, the reducer function.
