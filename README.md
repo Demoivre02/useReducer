@@ -35,7 +35,7 @@ The useReducer hook requires three Argument and one optional parameter viz:
 
 
 
-1. The reducer function: 
+The reducer function: 
 
 As your application deals with an increasing number of events, it becomes increasingly challenging to quickly grasp all that is happening, which can be quite exasperating. Reducers enable you to gather all your state modification logic in a single location and return a single value. This implies that, for instance, when working on a to-do application, you do not have to generate separate functions for adding and deleting items, it can all be done in a single function, the reducer function.
 The reducer function takes two arguments, viz:
@@ -79,10 +79,10 @@ function reducer(state,  action){
 
 ```
 
-2. The initial state:
+The initial state:
 The type of the initial state can vary and can be an array, object, or string. In the reducer function, you modify the initial value that you want to update.
 
-3. Init function(optional):
+Init function(optional):
 It is also possible to defer creating the initial state until it's needed. One way to achieve this is by providing an initialization function as the third argument. The value returned by init(initialArg) will be used as the initial state.This approach allows you to separate the calculation of the initial state from the reducer logic.
 
 Returns:
