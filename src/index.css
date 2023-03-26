@@ -1,0 +1,16 @@
+.button{
+  margin-left: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+.name{
+  margin-right: 5px;
+}
+.del{
+  margin-left: 5px;
+}
