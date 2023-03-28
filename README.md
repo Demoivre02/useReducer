@@ -51,15 +51,14 @@ The above code makes use of the traditional if/else statements, but it is conven
 ```bash
 function reducer(state,  action){
   switch (action.type){
-    case: 'added':{
+    case 'added':
       //...
-    }
-    case 'deleted': {
+    break;
+    case 'deleted':
       //...
-    }
-    default:{
+    break;
+    default:
       throw Error ('unknown': + action.type )
-    }
   }
 }
 
@@ -184,23 +183,23 @@ export default Todo
         default:
           throw Error ('unidentified action : ' + action.type)   
     }
-    
+ 
   }
 
 ```
 
 The code above implements a simple todo list using React's useState and useReducer hooks.
 
-The Todo component initializes a state for todoArray, an array of objects representing the todo items. It also defines three additional pieces of state:
-* value: a string that stores the current input value of the add todo input field.
+The Todo component initializes a state for todoArray, an array of objects representing the todo items. It also specifies three additional pieces of state:
+* value: a variable that stores the current input value of the input field.
 * todos: the state object returned by the useReducer hook, which manages the todo items in the array.
 * lastId: an integer that keeps track of the last todo item's ID.
 
-The addTodo function dispatches an action object with a type of added, a unique id based on lastId, and the text of the todo item to be added. The todoReducer function then handles the action and updates the todos state array by adding a new object representing the todo item.
+The addTodo function dispatches an action object with a type of added, a payload that holds a unique id based on the lastId, and the text of the todo item to be added. The todoReducer function then handles the action and updates the todos state array by adding a new object representing the todo item.
 
-The deleteTodo function dispatches an action object with a type of deleted and the ID of the todo item to be deleted. The todoReducer function then handles the action and updates the todos state array by removing the object with the specified ID.
+The deleteTodo function dispatches an action object with a type of deleted and a payload that holds the ID of the todo item to be deleted. The todoReducer function then handles the action and updates the todos state array by removing the object with the specified ID.
 
-The Todo component returns a form that allows the user to input new todo items and a list of existing todo items. When the user enters a new todo item and clicks the "Add" button, the addTodo function is called to dispatch the added action and update the myTodos state. The stateSetters function is also called to reset the input field and increment the ID counter. When the user clicks the "Delete" button next to an existing todo item, the deleteTodo function is called to dispatch the deleted action and update the todos state by removing the specified todo item.
+The Todo component returns a form that allows the user to input new todo items and a list of existing todo items. When the user enters a new todo item and clicks the "Add" button, the handleAddTodo function is called and it triggers the addTodo function to dispatch the **"added"** action, it also resets the input field and increment the ID counter. When the user clicks the "Delete" button next to an existing todo item, the deleteTodo function is called to dispatch the deleted action and update the todos state by removing the specified todo item.
 
 The todoReducer function takes in two arguments: the current state array of todo items and an action object that describes the desired state change. It uses a switch statement to determine the appropriate update to the state based on the type property of the action object. If the type is added, the function returns a new array with the previous state and a new object representing the added todo item. If the type is deleted, the function returns a new array with all of the todo items except for the one with the specified id. If the action type is not recognized, an error is thrown.
 
@@ -221,11 +220,11 @@ A reducer function is a pure function that does not rely on any component-specif
 
 
 ## When you should not useReducer:
-1. Simple state management: If your applicatin is handling simple state that requires very simple logic, you may not need to use useReducer. You should consider using the useState hook which is simpler and more easier to implement.
 
-2. Small application:If you're developing a basic application eg Counter Application that only needs to increase or decrease a count. It would be more appropriate to use the useState hook to manage state locally within the component.
+1. Small application:
+If you're developing a basic application e.g a Counter Application that only needs to increase or decrease a count. It would be more appropriate to use the useState hook to manage state locally within the component.
 
-3. Shared state Management: 
+2. Shared state Management: 
 When multiple children components in a parent component need to share props, using useReducer may not be the optimal choice. Instead, you should consider utilizing other state management tools such as Redux or MobX.
 
 
